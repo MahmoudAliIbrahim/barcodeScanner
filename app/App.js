@@ -3,6 +3,7 @@ import {StatusBar, StyleSheet} from 'react-native';
 import {Router, Scene, Stack} from 'react-native-router-flux';
 import {ScannerScene} from './scenes';
 import {SafeAreaView} from 'react-navigation';
+import {colors} from './common';
 class App extends Component {
   render() {
     return (
@@ -23,5 +24,6 @@ export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: colors.main_color,
   },
 });
