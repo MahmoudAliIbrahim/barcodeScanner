@@ -194,7 +194,6 @@
 				BAEDC4E0B174DD981CEB0A1C /* Pods-barcodeScanner-tvOSTests.debug.xcconfig */,
 				BBABB3EFF48D543666F0271A /* Pods-barcodeScanner-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
