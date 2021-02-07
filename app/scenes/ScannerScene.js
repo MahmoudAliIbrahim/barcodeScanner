@@ -1,21 +1,45 @@
-import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet} from 'react-native';
 import {RNCamera} from 'react-native-camera';
 import {colors} from '../common';
+import {APIServices} from '../services';
+import LoadingView from '@mahmoudaliibrahim/react-native-loading-view';
+import Toast from 'react-native-toast-message';
 
 const ScannerScene = () => {
+  const [loading, setLoading] = useState(false);
   const onBarCodeRead = (event) => {
-    console.log(event.data);
+    if (event.data) {
+      setLoading(true);
+      APIServices.getProduct(event.data)
+        .then(console.log)
+        .catch((error) => {
+          Toast.show({
+            type: 'error',
+            position: 'top',
+            text1: 'An Error Occured',
+            text2: error.message,
+            autoHide: true,
+          });
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }
   };
   return (
-    <View style={styles.container}>
+    <LoadingView
+      unmount
+      isLoading={loading}
+      containerStyle={styles.container}
+      indicatorColor={colors.main_color}>
       <RNCamera
         style={styles.camera}
         aspect={RNCamera.Constants.AutoFocus}
         onBarCodeRead={onBarCodeRead}
         captureAudio={false}
       />
-    </View>
+    </LoadingView>
   );
 };
 

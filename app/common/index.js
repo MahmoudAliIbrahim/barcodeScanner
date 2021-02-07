@@ -1,3 +1,4 @@
 import colors from './colors';
+import config from './config';
 
-export {colors};
+export {colors, config};

@@ -10,13 +10,15 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@mahmoudaliibrahim/react-native-loading-view": "^1.0.4",
     "react": "16.13.1",
     "react-native": "0.63.4",
     "react-native-camera": "^3.42.0",
     "react-native-gesture-handler": "^1.9.0",
     "react-native-reanimated": "^1.13.2",
     "react-native-router-flux": "^4.2.0",
-    "react-native-screens": "^2.17.1"
+    "react-native-screens": "^2.17.1",
+    "react-native-toast-message": "^1.4.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.13",

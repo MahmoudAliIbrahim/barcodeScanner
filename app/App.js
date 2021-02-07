@@ -4,6 +4,7 @@ import {Router, Scene, Stack} from 'react-native-router-flux';
 import {ScannerScene} from './scenes';
 import {SafeAreaView} from 'react-navigation';
 import {colors} from './common';
+import Toast from 'react-native-toast-message';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Scene key={'scanner'} title={'Scanner'} component={ScannerScene} />
         </Stack>
       </Router>
+      <Toast ref={(ref) => Toast.setRef(ref)} />
     </SafeAreaView>
   );
 };
