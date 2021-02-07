@@ -7,7 +7,12 @@ import {colors} from './common';
 class App extends Component {
   render() {
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView
+        style={styles.container}
+        forceInset={{
+          top: 'always',
+          bottom: 'always',
+        }}>
         <StatusBar barStyle="dark-content" />
         <Router>
           <Stack key="app" hideNavBar>
