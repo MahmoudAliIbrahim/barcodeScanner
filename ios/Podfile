@@ -6,7 +6,7 @@ platform :ios, '10.0'
 target 'barcodeScanner' do
   config = use_native_modules!
 
-  use_react_native!(:path => config["reactNativePath"])
+  use_react_native!(path: config['reactNativePath'])
 
   target 'barcodeScannerTests' do
     inherit! :complete
@@ -17,7 +17,7 @@ target 'barcodeScanner' do
   #
   # Note that if you have use_frameworks! enabled, Flipper will not work and
   # you should disable these next few lines.
-  use_flipper!
+  use_flipper!({ 'Flipper-Folly' => '2.3.0' })
   post_install do |installer|
     flipper_post_install(installer)
   end
