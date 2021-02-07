@@ -1,2 +1,4 @@
 import ScannerScene from './ScannerScene';
-export {ScannerScene};
+import ProductScene from './ProductScene';
+
+export {ScannerScene, ProductScene};
