@@ -8,23 +8,33 @@ import Toast from 'react-native-toast-message';
 
 const ScannerScene = () => {
   const [loading, setLoading] = useState(false);
+
+  const showError = (message) => {
+    Toast.show({
+      type: 'error',
+      position: 'top',
+      text1: 'An Error Occurred',
+      text2: message,
+      autoHide: true,
+    });
+  };
   const onBarCodeRead = (event) => {
     if (event.data) {
       setLoading(true);
       APIServices.getProduct(event.data)
-        .then(console.log)
+        .then((result) => {
+          if (result.status !== 'active') {
+            showError(`This barcode is ${result.status}`);
+          }
+        })
         .catch((error) => {
-          Toast.show({
-            type: 'error',
-            position: 'top',
-            text1: 'An Error Occured',
-            text2: error.message,
-            autoHide: true,
-          });
+          showError(error.message);
         })
         .finally(() => {
           setLoading(false);
         });
+    } else {
+      showError('This barcode is invalid');
     }
   };
   return (
