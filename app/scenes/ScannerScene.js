@@ -1,26 +1,25 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {RNCamera} from 'react-native-camera';
 import {colors} from '../common';
 
-export default class ScannerScene extends Component {
-  onBarCodeRead = (event) => {
+const ScannerScene = () => {
+  const onBarCodeRead = (event) => {
     console.log(event.data);
   };
-  render() {
-    return (
-      <View style={styles.container}>
-        <RNCamera
-          style={styles.camera}
-          aspect={RNCamera.Constants.AutoFocus}
-          ref={(cam) => (this.camera = cam)}
-          onBarCodeRead={this.onBarCodeRead}
-          captureAudio={false}
-        />
-      </View>
-    );
-  }
-}
+  return (
+    <View style={styles.container}>
+      <RNCamera
+        style={styles.camera}
+        aspect={RNCamera.Constants.AutoFocus}
+        onBarCodeRead={onBarCodeRead}
+        captureAudio={false}
+      />
+    </View>
+  );
+};
+
+export default ScannerScene;
 
 const styles = StyleSheet.create({
   container: {
